@@ -1,0 +1,11 @@
+<h1>Todo today or later</h1>
+<ul>
+  <% @tasks.each do |task| %>
+    <li>
+      <%= link_to "#{ task.title }", task_path(task) %>
+      "<%= task.details %>"
+      —— <%= task.completed %>
+      —— <%= link_to "Delete", tasks_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+    </li>
+  <% end %>
+</ul>
